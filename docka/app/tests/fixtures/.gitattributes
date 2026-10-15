@@ -1,0 +1,4 @@
+# company_normalize_vectors.json is a byte-exact vendored copy of the pipeline's
+# golden-vector fixture; the [B6] test guards its sha256. Never eol-convert it,
+# or Windows autocrlf checkouts smudge it to CRLF and the hash guard fails.
+company_normalize_vectors.json -text

@@ -1,0 +1,45 @@
+{
+  "seafarers": [
+    {
+      "id": "legacy-sf-1",
+      "name": "Legacy Seaman",
+      "rank": "Able Seaman",
+      "state": "review",
+      "shareToken": "legacy-open-tok",
+      "createdAt": "2025-01-01T00:00:00.000Z",
+      "selfProfile": { "phone": "+372 5000 0000", "bankAccount": "EE00 0000 0000" }
+    }
+  ],
+  "documents": [],
+  "comments": [],
+  "restHours": [],
+  "agents": [
+    { "id": "legacy-agent-1", "orgName": "Legacy Crewing", "contact": "ops@legacy.example", "createdAt": "2025-01-01T00:00:00.000Z" }
+  ],
+  "assignments": [],
+  "accessGrants": [
+    {
+      "id": "legacy-grant-1",
+      "seafarerId": "legacy-sf-1",
+      "agentId": "legacy-agent-1",
+      "status": "ACTIVE",
+      "legalBasis": "CONSENT",
+      "scope": ["profile", "documents", "log"],
+      "shareToken": "legacy-grant-tok",
+      "grantedAt": "2025-01-02T00:00:00.000Z",
+      "revokedAt": null,
+      "expiresAt": null,
+      "createdAt": "2025-01-02T00:00:00.000Z"
+    }
+  ],
+  "requiredDocsConfigs": [],
+  "requiredDocsAudit": [],
+  "notifications": [],
+  "remindersSent": [],
+  "circulars": [],
+  "circularReplies": [],
+  "docRequests": [],
+  "profileChanges": [],
+  "seaService": [],
+  "impersonations": []
+}

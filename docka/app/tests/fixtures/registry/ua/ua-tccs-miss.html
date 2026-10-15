@@ -1,0 +1,13 @@
+<!-- Fixture: tccs.online validate-certificate MISS page — the miss STRING is the
+     dossier-observed live text (2026-07-20, dummy Ivanov/20931231); the HTML
+     wrapper around it is reconstructed from the dossier's documented container
+     (div.enquire_form.validation-form-wrapper). Deliberately AMBIGUOUS ("contact
+     us", not "not found") → maps to indeterminate, NEVER invalid (plan §3.1). -->
+<div class="enquire_form validation-form-wrapper">
+  <form method="post" action="/en/validate-certificate/">
+    <input type="text" name="surname" placeholder="Ivanov" />
+    <input type="text" name="certificate_number" placeholder="20931231" />
+    <input type="submit" name="submit" value="Search" />
+  </form>
+  <p class="validation-message">Please contact us at info@tccs.online to validate this certificate</p>
+</div>

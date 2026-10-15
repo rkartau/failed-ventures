@@ -1,0 +1,2 @@
+# PDF fixtures are BINARY — never CRLF-convert (stream /Length byte counts)
+*.pdf -text

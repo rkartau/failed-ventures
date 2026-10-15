@@ -1,0 +1,28 @@
+{
+  "_comment": "Contract fixture for the TOKENLESS signup event (go-live readiness plan 2026-08-25 item 3). POST /api/signup appends this row shape when a signup PROVIDES AN EMAIL but presents NO valid CTA token: send_key EMPTY STRING, user_id = the created account id, and the account's (lower-cased, unverified) email under the PINNED schema key `email` - the exact key the pipeline fold reads first (pipeline cli._signup_event_email; account_email / signup_email remain legacy aliases). No email -> no event; a VALID token keeps today's tokened row (which also carries `email` when present) and appends NO tokenless duplicate. event_key follows the UNCHANGED byte-exact formula: slots [send_key, message_id, event, touch-slot] joined by the 0x1f byte, UTF-8, SHA-256 lowercase hex; for `signup` the user_id occupies the touch slot and message_id is the empty string, so two tokenless signups by different accounts hash DISTINCT keys while a replay of one collapses.",
+  "email_field": "email",
+  "rows": [
+    {
+      "name": "tokenless_organic_1",
+      "row": {
+        "event": "signup",
+        "send_key": "",
+        "user_id": "cred:organic-1",
+        "email": "captain.nemo@example.com"
+      },
+      "slots": ["", "", "signup", "cred:organic-1"],
+      "expected_event_key": "5da8ac54bdcc02dc33c0706c0cb9f7508fd77775a7f98a0880434238c603cafa"
+    },
+    {
+      "name": "tokenless_organic_2_distinct_user",
+      "row": {
+        "event": "signup",
+        "send_key": "",
+        "user_id": "cred:organic-2",
+        "email": "captain.nemo@example.com"
+      },
+      "slots": ["", "", "signup", "cred:organic-2"],
+      "expected_event_key": "042de11a29722e5b1874e362ecd0c29f1a38818d9a990c989dd3c68832778720"
+    }
+  ]
+}

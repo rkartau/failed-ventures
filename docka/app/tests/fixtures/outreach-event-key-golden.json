@@ -1,0 +1,160 @@
+{
+  "_comment": "Golden vectors for the byte-exact event_key contract (plan Phase C, C3). The Python pipeline reader MUST reproduce every expected_event_key. Algorithm: fields [send_key, message_id, event, touch-slot] joined by the 0x1f byte, UTF-8, SHA-256 lowercase hex. touch-slot: decimal string of touch; empty string for null/absent touch; booking_id for booking events; user_id for signup events (message_id empty). signup_started uses the normal decimal-touch rule. message_id absent -> empty string.",
+  "cases": [
+    {
+      "name": "open_touch1",
+      "input": {
+        "send_key": "sk_abc",
+        "message_id": "mid_123",
+        "event": "open",
+        "touch": 1
+      },
+      "slots": [
+        "sk_abc",
+        "mid_123",
+        "open",
+        "1"
+      ],
+      "expected_event_key": "59edc47c93f4848da34a43d438fdb822fbc606dc89071265629a22f3feef0385"
+    },
+    {
+      "name": "unsub_touch3",
+      "input": {
+        "send_key": "sk_abc",
+        "message_id": "mid_123",
+        "event": "unsub",
+        "touch": 3
+      },
+      "slots": [
+        "sk_abc",
+        "mid_123",
+        "unsub",
+        "3"
+      ],
+      "expected_event_key": "f46ae1a5f48d144ad5b454bf2956108cdda7680389b81175ae3afd53fd50b7da"
+    },
+    {
+      "name": "open_null_touch",
+      "input": {
+        "send_key": "sk_null",
+        "message_id": "mid_x",
+        "event": "open",
+        "touch": null
+      },
+      "slots": [
+        "sk_null",
+        "mid_x",
+        "open",
+        ""
+      ],
+      "expected_event_key": "9d8a3495c8cb7d1b9d10b6b7a59d730438c29a3ca9090d03feae7496f150d0a8"
+    },
+    {
+      "name": "open_absent_message_id",
+      "input": {
+        "send_key": "sk_nomid",
+        "event": "open",
+        "touch": 2
+      },
+      "slots": [
+        "sk_nomid",
+        "",
+        "open",
+        "2"
+      ],
+      "expected_event_key": "44bd127c071e8d27f291eb3e65e8f3ae8042e7a64fe570f7021874709cb06268"
+    },
+    {
+      "name": "open_emoji_send_key",
+      "input": {
+        "send_key": "🚀sk",
+        "message_id": "mid_e",
+        "event": "open",
+        "touch": 1
+      },
+      "slots": [
+        "🚀sk",
+        "mid_e",
+        "open",
+        "1"
+      ],
+      "expected_event_key": "0078998364f0af6e7c12487ce3bef65cda357ffdd0d07fbfeef5e84071867ed8"
+    },
+    {
+      "name": "booking",
+      "input": {
+        "send_key": "sk_book",
+        "event": "booking",
+        "booking_id": "bk_999"
+      },
+      "slots": [
+        "sk_book",
+        "",
+        "booking",
+        "bk_999"
+      ],
+      "expected_event_key": "160df6de9babd46b2cb559862eb47cdcb3f56fae84d94f607c011b314ae95bbc"
+    },
+    {
+      "name": "booking_second_distinct",
+      "input": {
+        "send_key": "sk_book",
+        "event": "booking",
+        "booking_id": "bk_1000"
+      },
+      "slots": [
+        "sk_book",
+        "",
+        "booking",
+        "bk_1000"
+      ],
+      "expected_event_key": "f4fbacaf6d416ab640dc265b143a96a9946cfb1c72891bc07b3c405e67616ce6"
+    },
+    {
+      "name": "signup",
+      "input": {
+        "send_key": "LD42",
+        "event": "signup",
+        "user_id": "cred:abc-123"
+      },
+      "slots": [
+        "LD42",
+        "",
+        "signup",
+        "cred:abc-123"
+      ],
+      "expected_event_key": "3487e55ae4a3065b493bc1111dc1f35dbfe86188e92cb8b034b8444b2d7f34da"
+    },
+    {
+      "name": "signup_second_account_distinct",
+      "input": {
+        "send_key": "LD42",
+        "event": "signup",
+        "user_id": "cred:def-456"
+      },
+      "slots": [
+        "LD42",
+        "",
+        "signup",
+        "cred:def-456"
+      ],
+      "expected_event_key": "5f9a1a87c43f5f000fa999f9ba6209e5ed47ddd1844f5136dd2f6d9d2d4b073d"
+    },
+    {
+      "name": "signup_started_cta",
+      "input": {
+        "send_key": "LD42",
+        "message_id": "cta-signup",
+        "event": "signup_started",
+        "touch": 0
+      },
+      "slots": [
+        "LD42",
+        "cta-signup",
+        "signup_started",
+        "0"
+      ],
+      "expected_event_key": "c9dc3e397d554232ad352e1ea89ab561d37e830e0dda3b3e399d1c7555538724"
+    }
+  ]
+}

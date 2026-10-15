@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Renars &lt;b&gt;Sample&lt;/b&gt; &amp; &quot;Co&quot; — Seafarer CV &amp; certificate matrix</title>
+<style>
+  :root { --ink:#0f172a; --muted:#64748b; --line:#e2e8f0; --brand:#0369a1; }
+  * { box-sizing: border-box; }
+  body { margin:0; font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif; color: var(--ink); background:#f8fafc; }
+  .sheet { max-width: 900px; margin: 0 auto; padding: 32px; background:#fff; }
+  header { display:flex; justify-content:space-between; align-items:flex-start; gap:16px; border-bottom:2px solid var(--line); padding-bottom:16px; }
+  h1 { font-size: 26px; margin:0; }
+  .rank { color: var(--muted); font-size:14px; margin-top:2px; }
+  .identity { color: var(--muted); font-size:12px; margin-top:6px; }
+  .stamp { display:inline-flex; align-items:center; gap:6px; background:#059669; color:#fff; font-size:11px; font-weight:700; padding:4px 10px; border-radius:999px; white-space:nowrap; }
+  .brand { text-align:right; }
+  .brand .name { font-weight:800; color: var(--brand); font-size:18px; letter-spacing:-0.01em; }
+  .brand .tag { color: var(--muted); font-size:11px; }
+  .summary { display:flex; flex-wrap:wrap; gap:8px; margin:18px 0 8px; }
+  .chip { font-size:12px; font-weight:600; padding:5px 10px; border-radius:8px; background:#f1f5f9; color:#334155; }
+  .chip b { font-weight:800; }
+  .chip.warn { background:#fffbeb; color:#b45309; }
+  .chip.bad { background:#fef2f2; color:#b91c1c; }
+  h2 { font-size:12px; text-transform:uppercase; letter-spacing:0.08em; color:var(--muted); margin:22px 0 8px; }
+  table { width:100%; border-collapse:collapse; font-size:13px; }
+  th { text-align:left; font-size:11px; text-transform:uppercase; letter-spacing:0.04em; color:var(--muted); padding:8px 10px; border-bottom:1px solid var(--line); }
+  td { padding:10px; border-bottom:1px solid var(--line); vertical-align:top; }
+  .cert-title { font-weight:600; }
+  .verified { margin-left:6px; font-size:10px; font-weight:700; color:#047857; background:#ecfdf5; padding:1px 6px; border-radius:999px; }
+  .mono { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size:12px; color:#334155; }
+  .legal { display:block; font-weight:600; }
+  .printed { display:block; font-size:11px; color:var(--muted); text-decoration:line-through; }
+  .note { margin-top:4px; font-size:11px; color:#b45309; }
+  .pill { display:inline-block; font-size:11px; font-weight:700; padding:3px 9px; border-radius:999px; white-space:nowrap; }
+  .empty { text-align:center; color:var(--muted); padding:24px; }
+  footer { margin-top:24px; padding-top:12px; border-top:1px solid var(--line); font-size:11px; color:var(--muted); display:flex; justify-content:space-between; gap:12px; }
+  @media print {
+    body { background:#fff; }
+    .sheet { max-width:none; padding:0; }
+    .noprint { display:none !important; }
+  }
+</style>
+</head>
+<body>
+  <div class="sheet">
+    <header>
+      <div>
+        <h1>Renars &lt;b&gt;Sample&lt;/b&gt; &amp; &quot;Co&quot;</h1>
+        <div class="rank">Chief Officer</div>
+        <div style="margin-top:8px"><span class="stamp">&#10003; Government-verified identity</span></div>
+        <div class="identity">Personal code 38007200123 &middot; Born 20 Jul 1980 &middot; Issued by Eesti</div>
+      </div>
+      <div class="brand">
+        <div class="name">docka</div>
+        <div class="tag">Seafarer credential platform</div>
+      </div>
+    </header>
+
+    <!-- #S7 + persona re-review — ONE coherent line covering BOTH axes (verification
+         tally + validity tally); the separate verdict-headline line was folded in. -->
+    <div class="summary">
+      <span class="chip">
+        <b>1</b> of <b>2</b> verified &middot; <b>1</b> in date &middot; <b>1</b> expiring soon &middot; <b>1</b> legal expiry earlier than printed
+      </span>
+    </div>
+
+    <h2>Certificate matrix</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Certificate</th>
+          <th>Category</th>
+          <th>Number</th>
+          <th>Expiry</th>
+          <th>Status</th>
+        </tr>
+      </thead>
+      <tbody>
+        
+          <tr>
+            <td>
+              <span class="cert-title">STCW Basic Safety &lt;Training&gt;</span>
+              <span class="verified">verified</span>
+              
+            </td>
+            <td>Basic Safety Training</td>
+            <td class="mono">EE-BST-001</td>
+            <td>15 Jan 2027</td>
+            <td><span class="pill" style="background:#ecfdf5;color:#047857">Government-verified</span></td>
+          </tr>
+          <tr>
+            <td>
+              <span class="cert-title">Medical fitness (ENG1)</span>
+              
+              <div class="note">Age-based rule: legal expiry earlier than printed</div>
+            </td>
+            <td>Medical</td>
+            <td class="mono">&mdash;</td>
+            <td><span class="legal">20 Jul 2025</span><span class="printed">printed 01 Sept 2026</span></td>
+            <td><span class="pill" style="background:#fffbeb;color:#b45309">Expiring soon</span></td>
+          </tr>
+      </tbody>
+    </table>
+
+    <footer>
+      <span>Generated by docka on 01 Jun 2024. Government-verified entries are confirmed against the issuing government's maritime registry.</span>
+      <span class="noprint">Use your browser's Print &rarr; Save as PDF to keep a copy.</span>
+    </footer>
+  </div>
+</body>
+</html>

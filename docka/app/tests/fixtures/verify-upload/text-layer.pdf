@@ -1,0 +1,41 @@
+%PDF-1.4
+%‚„œ”
+1 0 obj
+<< /Type /Pages /Count 1 /Kids [4 0 R] >>
+endobj
+2 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica >>
+endobj
+3 0 obj
+<<  /Length 491 >>
+stream
+BT /F1 12 Tf 50 780 Td 16 TL
+(TEST SPECIMEN - BORN-DIGITAL PDF - FOR SYSTEM VALIDATION ONLY) Tj T*
+(This synthetic document exists to exercise the recognition worker's) Tj T*
+(text-layer fast path: a PDF whose pages carry a real extractable text) Tj T*
+(layer must answer in milliseconds without any rasterization or OCR.) Tj T*
+(It is also the on-box deploy-gate render target \(see v1 deploy notes\).) Tj T*
+(Nothing here matches any registry keyword or code pattern on purpose.) Tj T*
+ET
+
+endstream
+endobj
+4 0 obj
+<< /Type /Page /Parent 1 0 R /MediaBox [0 0 595 842] /Resources << /Font << /F1 2 0 R >> >> /Contents 3 0 R >>
+endobj
+5 0 obj
+<< /Type /Catalog /Pages 1 0 R >>
+endobj
+xref
+0 6
+0000000000 65535 f 
+0000000015 00000 n 
+0000000072 00000 n 
+0000000142 00000 n 
+0000000685 00000 n 
+0000000811 00000 n 
+trailer
+<< /Size 6 /Root 5 0 R  >>
+startxref
+860
+%%EOF

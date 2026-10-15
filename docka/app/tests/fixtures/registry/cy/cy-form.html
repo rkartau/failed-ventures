@@ -1,0 +1,42 @@
+<!-- Fixture: Cyprus eMARCOS search form — REAL capture 2026-08-12 from the
+     production box:
+     GET https://eservices.dms.gov.cy/emarcos/cert_ver/stcw/sea_auth_search_form.php
+     -> 200 + Set-Cookie PHPSESSID (plain PHP 5.6 app; no CSRF, no CAPTCHA).
+     Fields: sea_id + cert_no; submit button name="search" value="search".
+     Served by the mock registry's CY form GET (session seam). -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<meta charset="utf-8">
+		<title>SHIPPING DEPUTY MINISTRY: Authentication of Seafarer Certificate</title>
+	</head>
+	<body>
+		<div class="container">
+			<h3 class = "text-center">Authentication of Seafarer Certificate</h3>
+			<div class="row clearfix">
+				<div class="col-md-6 col-md-offset-3 column">
+					<form action="" method="post">
+						<div class="form-group">
+							<label class="control-label" for="sea_id">Seafarer ID No&nbsp;</label>
+							<input type="text" class="form-control" id="sea_id" name="sea_id" value="" required>
+						</div>
+						<div class="form-group">
+							<label class="control-label" for="cert_no">Certificate No&nbsp;</label>
+							<input type="text" class="form-control id="cert_no" name="cert_no" value="" required>
+						</div>
+						<div>
+							<p><h5 style="color:red">*&nbsp;&nbsp;Mandatory Fields</h5></p>
+						</div>
+						<div class="form-group">
+							<h5 style="color:#D6791A;"> Note: Seafarer ID No. is shown on the top left hand corner of the Certificate.</h5>
+						</div>
+						<div class="text-center">
+							<button class="btn btn-primary btn-sm btn_custom" type="submit" name="search" value="search">Search</button>
+							<button class="btn btn-primary btn-sm btn_custom" type="refresh"  name="reset"  value="reset"> Reset</button>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>

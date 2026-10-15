@@ -1,0 +1,4 @@
+{
+  "__comment": "SYNTHETIC malformed-response fixture: a 200 body with NO recognizable certificate fields and NO validity signal (schema drift). Must map to indeterminate, never any verdict.",
+  "someUnknownEnvelope": { "data": [] }
+}

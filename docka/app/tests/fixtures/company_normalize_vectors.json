@@ -1,0 +1,125 @@
+{
+  "_note": "SHARED golden vector for normalizeCompanyKey \u2014 JS/Python parity gate [V4][B6]. Edit in ONE place; both repos must load identical bytes.",
+  "vectors": [
+    {
+      "input": "Acme Shipping",
+      "expected": "acme shipping"
+    },
+    {
+      "input": "  Acme  Shipping  ",
+      "expected": "acme shipping"
+    },
+    {
+      "input": "ACME SHIPPING",
+      "expected": "acme shipping"
+    },
+    {
+      "input": "Acme, Inc.",
+      "expected": "acme inc"
+    },
+    {
+      "input": "Acme Inc",
+      "expected": "acme inc"
+    },
+    {
+      "input": "Acme Shipping.",
+      "expected": "acme shipping"
+    },
+    {
+      "input": "Acme Shipping,",
+      "expected": "acme shipping"
+    },
+    {
+      "input": "Stra\u00dfe",
+      "expected": "stra\u00dfe"
+    },
+    {
+      "input": "STRASSE",
+      "expected": "strasse"
+    },
+    {
+      "input": "\u0130ZMIR",
+      "expected": "izmir"
+    },
+    {
+      "input": "\u0131\u015f\u0131k",
+      "expected": "\u0131s\u0131k"
+    },
+    {
+      "input": "Cafe\u0301 Marine",
+      "expected": "cafe marine"
+    },
+    {
+      "input": "Caf\u00e9 Marine",
+      "expected": "cafe marine"
+    },
+    {
+      "input": "Acme\u00a0Shipping",
+      "expected": "acme shipping"
+    },
+    {
+      "input": "Acme \ud83d\udea2 Line",
+      "expected": "acme \ud83d\udea2 line"
+    },
+    {
+      "input": null,
+      "expected": ""
+    },
+    {
+      "input": "",
+      "expected": ""
+    },
+    {
+      "input": "   ",
+      "expected": ""
+    },
+    {
+      "input": "Acme\tShipping\nLtd",
+      "expected": "acme shipping ltd"
+    },
+    {
+      "input": "\u00c5lesund Rederi",
+      "expected": "alesund rederi"
+    },
+    {
+      "input": "\u00d8st Shipping",
+      "expected": "\u00f8st shipping"
+    },
+    {
+      "input": "Gro\u00df-Reederei",
+      "expected": "gro\u00df-reederei"
+    },
+    {
+      "input": "O'Brien Marine",
+      "expected": "o'brien marine"
+    },
+    {
+      "input": "Acme   ,   Inc",
+      "expected": "acme inc"
+    },
+    {
+      "input": "Acme Shipping Ltd.",
+      "expected": "acme shipping ltd"
+    },
+    {
+      "input": "ACME, SHIPPING, LTD.",
+      "expected": "acme shipping ltd"
+    },
+    {
+      "input": "Zeebrugge Shipping N.V.",
+      "expected": "zeebrugge shipping n v"
+    },
+    {
+      "input": "\u00c6ther Marine",
+      "expected": "\u00e6ther marine"
+    },
+    {
+      "input": "na\u00efve shipping",
+      "expected": "naive shipping"
+    },
+    {
+      "input": "  Multiple   Inner    Spaces  ",
+      "expected": "multiple inner spaces"
+    }
+  ]
+}

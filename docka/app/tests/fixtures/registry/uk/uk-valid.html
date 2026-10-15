@@ -1,0 +1,36 @@
+<!-- SYNTHETIC fixture (2026-07-20 dossier §2): a MATCH page was NOT observed
+     live (no valid documentId+DOB sample existed). This is CONSTRUCTED from the
+     documented GOV.UK Design System template: the certificate/holder details
+     render in the #main-content region as a govuk-summary-list, replacing the
+     no-match notification banner (real miss fixture: uk-noresults.html).
+     The parser only claims match-valid on these high-confidence markers. -->
+<main class="govuk-main-wrapper" id="main-content" role="main">
+  <h1 class="govuk-heading-xl">Online UK Certificate of Competency checker</h1>
+  <h2 class="govuk-heading-m">Certificate details</h2>
+  <dl class="govuk-summary-list">
+    <div class="govuk-summary-list__row">
+      <dt class="govuk-summary-list__key">Name</dt>
+      <dd class="govuk-summary-list__value">JOHN SMITH</dd>
+    </div>
+    <div class="govuk-summary-list__row">
+      <dt class="govuk-summary-list__key">Document ID</dt>
+      <dd class="govuk-summary-list__value">1122334455</dd>
+    </div>
+    <div class="govuk-summary-list__row">
+      <dt class="govuk-summary-list__key">Certificate type</dt>
+      <dd class="govuk-summary-list__value">Certificate of Competency (Deck Officer)</dd>
+    </div>
+    <div class="govuk-summary-list__row">
+      <dt class="govuk-summary-list__key">Issue date</dt>
+      <dd class="govuk-summary-list__value">2022-06-15</dd>
+    </div>
+    <div class="govuk-summary-list__row">
+      <dt class="govuk-summary-list__key">Expiry date</dt>
+      <dd class="govuk-summary-list__value">2027-06-15</dd>
+    </div>
+    <div class="govuk-summary-list__row">
+      <dt class="govuk-summary-list__key">Status</dt>
+      <dd class="govuk-summary-list__value">Valid</dd>
+    </div>
+  </dl>
+</main>

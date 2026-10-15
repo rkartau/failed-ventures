@@ -1,0 +1,28 @@
+<!-- Fixture: Croatia COCV APEX page-10 search form — SYNTHETIC skeleton of the
+     dossier-documented plumbing (form action wwv_flow.accept?p_context=…, the
+     hidden APEX fields that MUST be replayed, and the three P10 items). Used by
+     the extractApexForm unit test and (with the UPPERCASE placeholder tokens
+     replaced) served by the mock registry's session round-trip. -->
+<form action="wwv_flow.accept?p_context=300:10:SID123" method="post" name="wwv_flow" id="wwvFlowForm">
+  <input type="hidden" name="p_flow_id" value="300" id="pFlowId" />
+  <input type="hidden" name="p_flow_step_id" value="10" id="pFlowStepId" />
+  <input type="hidden" name="p_instance" value="SID123" id="pInstance" />
+  <input type="hidden" name="p_page_submission_id" value="SUB789" id="pPageSubmissionId" />
+  <input type="hidden" name="p_request" value="SEARCH" id="pRequest" />
+  <input type="hidden" name="p_reload_on_submit" value="S" />
+  <input type="hidden" name="pSalt" value="SALT456" />
+  <input type="hidden" name="pPageItemsProtected" value="PROT000" />
+  <div class="t-Form-fieldContainer">
+    <label for="P10_IME">Ime</label>
+    <input type="text" id="P10_IME" name="P10_IME" value="" />
+  </div>
+  <div class="t-Form-fieldContainer">
+    <label for="P10_PREZIME">Prezime</label>
+    <input type="text" id="P10_PREZIME" name="P10_PREZIME" value="" />
+  </div>
+  <div class="t-Form-fieldContainer">
+    <label for="P10_BROJ">Serijski broj</label>
+    <input type="text" id="P10_BROJ" name="P10_BROJ" value="" />
+  </div>
+  <button type="submit" class="t-Button">Pretraži</button>
+</form>

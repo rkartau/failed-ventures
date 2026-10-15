@@ -1,0 +1,13 @@
+{
+  "name": "Docka — Seafarer credentials",
+  "short_name": "Docka",
+  "description": "Share and verify seafarer certificates — works offline for your saved documents.",
+  "start_url": "/seafarer",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#0f172a",
+  "icons": [
+    { "src": "/apple-icon.png", "sizes": "180x180", "type": "image/png" },
+    { "src": "/icon.png", "sizes": "512x512", "type": "image/png", "purpose": "any maskable" }
+  ]
+}

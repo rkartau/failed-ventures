@@ -1,0 +1,46 @@
+# dependencies
+/node_modules
+
+# next.js
+/.next
+/out
+*.tsbuildinfo
+
+# uploaded files (keep the folder, ignore contents)
+/uploads/*
+!/uploads/.gitkeep
+
+# runtime data (JSON store, audit logs, uploads corpus, product-fit verdicts)
+/data/
+
+# generated test specimens (source of truth: scripts/generate-country-specimens.mjs)
+/tests/fixtures/verify-upload-specimens/
+
+# test run output (screenshots, CSV exports, result JSON)
+/tests/shots/
+/tests/*-result.json
+
+# generated at deploy time (shipped commit SHA)
+/public/version.txt
+
+# Tesseract English model; download it, see ../README.md
+/eng.traineddata
+
+# lead and research data published by a separate pipeline; never commit
+/content/
+# (explicit names kept for tests/docka-sources.test.mjs)
+content/docka-leads.html
+content/docka-leads.json
+content/docka-leads-meta.json
+content/docka-leads-full.csv
+content/docka-leads.xlsx
+content/docka-sources.json
+/content-allocator/
+
+# misc
+.DS_Store
+*.pem
+npm-debug.log*
+*.log
+.env*
+!.env.example

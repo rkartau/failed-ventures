@@ -1,0 +1,14 @@
+{
+  "_comment": "Golden vectors for the SHARED email-match normalization (plan I5 [R2-7] + go-live D5 import recheck): trim -> Unicode NFC -> lowercase -> IDN domain to punycode ASCII. The FULL local part is kept (NO plus-address stripping); input with no usable local@domain split falls back to the trimmed/NFC/lowercased whole string. Implementations: pipeline common.normalize_email (Python, codecs idna) and app lib/email-match.ts normalizeEmailForMatch (Node, url.domainToASCII). Both MUST map every `input` to `expected` byte-for-byte - the D5 HMAC boundary only works if normalization is identical on both sides. Known engine divergence (IDNA2003 vs UTS46, e.g. eszett domains) is kept OUT of this corpus deliberately; extend only with vectors verified equal on both engines.",
+  "cases": [
+    { "name": "case_and_spaces", "input": "  CREWING@Alpha.Example.COM ", "expected": "crewing@alpha.example.com" },
+    { "name": "tab_newline_trim", "input": "\tuser@Example.com\n", "expected": "user@example.com" },
+    { "name": "plus_kept_full_local", "input": "User+Tag@Example.COM", "expected": "user+tag@example.com" },
+    { "name": "nfc_composed_kept", "input": "café@example.com", "expected": "café@example.com" },
+    { "name": "nfd_recomposed_to_nfc", "input": "café@example.com", "expected": "café@example.com" },
+    { "name": "idn_domain_punycode", "input": "ops@MÜNCHEN-shipping.de", "expected": "ops@xn--mnchen-shipping-zvb.de" },
+    { "name": "idn_domain_simple", "input": "x@münchen.de", "expected": "x@xn--mnchen-3ya.de" },
+    { "name": "unicode_local_lowered", "input": "Östen.Berg@Rederi.SE", "expected": "östen.berg@rederi.se" },
+    { "name": "unparseable_fallback", "input": "not-an-email", "expected": "not-an-email" }
+  ]
+}

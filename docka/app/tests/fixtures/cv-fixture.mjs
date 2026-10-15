@@ -1,0 +1,60 @@
+// Hand-built CvModel fixture with a FROZEN generatedAt, shared by the CV byte-parity
+// snapshot test (print-html.test.mjs) and the golden generator. renderCvHtml is a pure
+// function of this model (no `new Date()` on the compared path), so the output is
+// deterministic and byte-stable across runs. It deliberately exercises the CV-specific
+// CSS classes moved into extraCss: .cert-title, .verified, .mono, .legal, .printed,
+// .note, .pill, .empty. Includes an XSS attempt to prove esc() still escapes.
+export const cvFixtureModel = {
+  name: 'Renars <b>Sample</b> & "Co"',
+  rank: "Chief Officer",
+  identityVerified: true,
+  personalCode: "38007200123",
+  birthDate: "1980-07-20T00:00:00.000Z",
+  issuerCountry: "Eesti",
+  verdict: { floor: 2, headline: "Mostly verified", counts: {} },
+  generatedAt: "2024-06-01T00:00:00.000Z",
+  rows: [
+    {
+      docId: "d1",
+      title: 'STCW Basic Safety <Training>',
+      category: "Basic Safety Training",
+      number: "EE-BST-001",
+      source: "government",
+      verified: true,
+      printedExpiry: "2027-01-15T00:00:00.000Z",
+      legalExpiry: "2027-01-15T00:00:00.000Z",
+      legalDiffers: false,
+      legalNote: null,
+      status: "valid",
+      badge: { status: "verified", label: "Government-verified" },
+      level: 3,
+      levelTooltip: "Identity-bound",
+      reviewStatus: "approved",
+    },
+    {
+      docId: "d2",
+      title: "Medical fitness (ENG1)",
+      category: "Medical",
+      number: "",
+      source: "manual",
+      verified: false,
+      printedExpiry: "2026-09-01T00:00:00.000Z",
+      legalExpiry: "2025-07-20T00:00:00.000Z",
+      legalDiffers: true,
+      legalNote: "Age-based rule: legal expiry earlier than printed",
+      status: "expiring",
+      badge: { status: "unverified", label: "Expiring soon" },
+      level: 0,
+      levelTooltip: "Holder-bound",
+      reviewStatus: "pending",
+    },
+  ],
+  summary: {
+    total: 2,
+    verified: 1,
+    valid: 1,
+    expiring: 1,
+    expired: 0,
+    legalDiffers: 1,
+  },
+};

@@ -1,0 +1,12 @@
+<!-- Fixture: Croatia COCV ORA-20999 response — REAL wording captured 2026-08-12
+     from the production box (APEX 24.2.10 inline error render on the honest
+     replay POST with the correct plumbing + p_request=SEARCH_1 but an empty
+     reCAPTCHA-v3 P10_TOKEN): "ORA-20999: Došlo je do nepredviđene greške."
+     in the a-Notification error region (surrounding page markup trimmed).
+     The 2026-07 dossier wording was "ORA-20999: Detektirana je sumnjiva
+     aktivnost: ,1" — parseHR keys on the ORA-20999 code, so both map to
+     indeterminate: an input/session/captcha error, NEVER a verdict (§3.1).
+     This is the R10 tripwire that demoted HR to "assisted" on 2026-08-12. -->
+<div class="t-Body-alert">
+  <div class="a-Notification a-Notification--error"><div class="a-Notification-title aErrMsgTitle">Dogodila se pogreška</div><ul class="a-Notification-list htmldbUlErr"><li class="a-Notification-item htmldbOraErr">ORA-20999: Došlo je do nepredviđene greške.</li></ul></div>
+</div>

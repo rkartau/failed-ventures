@@ -1,0 +1,10 @@
+{
+  "__comment": "SYNTHETIC fixture: an explicit NEGATIVE validity status on a 200 record — must map to match-invalid (§3.1 'explicit invalid status'), never no-match, never match-valid.",
+  "certificateNumber": "12345678902",
+  "firstName": "KARI",
+  "lastName": "NORDMANN",
+  "certificateName": "Deck Officer Class 1 (Master)",
+  "validFrom": "2016-01-01",
+  "validTo": "2021-01-01",
+  "status": "Expired"
+}

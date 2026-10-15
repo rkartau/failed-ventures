@@ -1,0 +1,13 @@
+<!-- Fixture: Croatia COCV (cocv.pomorstvo.hr) no-match result region, captured 2026-07-20 -->
+<!-- REAL capture (registry-dossiers/fixtures/croatia-nomatch.html). -->
+<!-- Flow: GET /ords/f?p=300:10:<session>:::10:: (form) ; POST /ords/wwv_flow.accept?p_context=300:10:<session>
+     with APEX payload incl. P10_IME=Ivan, P10_PREZIME=Testic, P10_BROJ=12345 + hidden APEX fields
+     (p_flow_id=300, p_flow_step_id=10, p_instance=<session>, p_page_submission_id, p_request, pSalt, pPageItemsProtected...) ;
+     server 302s back to f?p=300:10:<session>::::: which renders the result region. -->
+<div id="no_data" class="t-Region no-print t-Region--removeHeader js-removeLandmark">
+  Nema podataka.
+</div>
+<!-- "Nema podataka." = no data / no match. A match renders a report region with certificate rows instead. -->
+<!-- Anti-automation note: setting item values via raw JS (no input events) then submitting produced
+     "ORA-20999: Detektirana je sumnjiva aktivnost: ,1" (suspicious activity detected) in a t-Alert--warning region.
+     Same lookup with proper input events succeeded. APEX Session State Protection is active. -->

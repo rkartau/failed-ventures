@@ -1,0 +1,46 @@
+<!-- Fixture: Cyprus eMARCOS no-match response — REAL capture 2026-08-12 from
+     the production box (synthetic inputs sea_id=000000 / cert_no=000000):
+     POST https://eservices.dms.gov.cy/emarcos/cert_ver/stcw/sea_auth_search_form.php
+     body: sea_id=000000&cert_no=000000&search=search  (Cookie: PHPSESSID from the
+     form GET). 200: the form re-rendered with the values echoed, plus the
+     alert-danger verdict below it. Maps to no-match (§3.1 definitive miss).
+     NOTE: the broken quoting on the cert_no input (class="form-control id=)
+     is genuinely the site's own markup. -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<meta charset="utf-8">
+		<title>SHIPPING DEPUTY MINISTRY: Authentication of Seafarer Certificate</title>
+	</head>
+	<body>
+		<div class="container">
+			<h3 class = "text-center">Authentication of Seafarer Certificate</h3>
+			<div class="row clearfix">
+				<div class="col-md-6 col-md-offset-3 column">
+					<form action="" method="post">
+						<div class="form-group">
+							<label class="control-label" for="sea_id">Seafarer ID No&nbsp;</label>
+							<input type="text" class="form-control" id="sea_id" name="sea_id" value="000000" required>
+						</div>
+						<div class="form-group">
+							<label class="control-label" for="cert_no">Certificate No&nbsp;</label>
+							<input type="text" class="form-control id="cert_no" name="cert_no" value="000000" required>
+						</div>
+						<div>
+							<p><h5 style="color:red">*&nbsp;&nbsp;Mandatory Fields</h5></p>
+						</div>
+						<div class="form-group">
+							<h5 style="color:#D6791A;"> Note: Seafarer ID No. is shown on the top left hand corner of the Certificate.</h5>
+						</div>
+						<div class="text-center">
+							<button class="btn btn-primary btn-sm btn_custom" type="submit" name="search" value="search">Search</button>
+							<button class="btn btn-primary btn-sm btn_custom" type="refresh"  name="reset"  value="reset"> Reset</button>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+		<p>&nbsp;</p>
+		<div class="alert alert-danger" role="alert" style="width:400px; margin:auto; text-align:center;">The Certificate was not found <br></div>
+	</body>
+</html>

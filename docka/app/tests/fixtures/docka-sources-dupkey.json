@@ -1,0 +1,71 @@
+{
+ "schema_version": 1,
+ "kind": "docka-sources",
+ "generated_at": "2026-01-02 00:00 UTC",
+ "generated_at_epoch_ms": 1767312000000,
+ "source_version": "vTEST",
+ "ledger": {
+  "file": "SOURCE_INDEX.csv",
+  "sha256": "0000000000000000000000000000000000000000000000000000000000000000",
+  "mtime": "2026-01-02 00:00 UTC",
+  "mtime_epoch_ms": 1767312000000,
+  "rows": 2,
+  "has_registry_column": true,
+  "has_assessed_at_column": true
+ },
+ "sources": [
+  {
+   "row": 38,
+   "section": "C",
+   "name": "CYMEPA members",
+   "country": "CY",
+   "category": "Maritime cluster body",
+   "url": "https://cymepa.org.cy/members",
+   "url_note": null,
+   "url_recorded_in": "PIPELINE_STATE.md#12",
+   "access_method": "member directory page",
+   "access_method_truncated": false,
+   "rows_extracted": "84",
+   "licence_terms": "facts-only member list",
+   "licence_terms_truncated": false,
+   "verdict": "USABLE",
+   "in_the_list": "YES|84",
+   "in_list_flag": "YES",
+   "in_list_rows": 84,
+   "notes": "first capture",
+   "notes_truncated": false,
+   "registry_keys": ["cymepa_members"],
+   "enrichment": false,
+   "assessed_at": "2026-08-17",
+   "assessed_at_basis": "url_recorded_in"
+  },
+  {
+   "row": 300,
+   "section": "C",
+   "name": "CYMEPA members (second capture)",
+   "country": "CY",
+   "category": "Maritime cluster body",
+   "url": "https://cymepa.org.cy/associates",
+   "url_note": null,
+   "url_recorded_in": "PIPELINE_STATE.md#20",
+   "access_method": "associates directory page",
+   "access_method_truncated": false,
+   "rows_extracted": "84",
+   "licence_terms": "facts-only member list",
+   "licence_terms_truncated": false,
+   "verdict": "USABLE",
+   "in_the_list": "YES|84",
+   "in_list_flag": "YES",
+   "in_list_rows": 84,
+   "notes": "second capture",
+   "notes_truncated": false,
+   "registry_keys": ["cymepa_members"],
+   "enrichment": false,
+   "assessed_at": "2026-08-17",
+   "assessed_at_basis": "url_recorded_in"
+  }
+ ],
+ "warnings": [
+  { "kind": "duplicate_key", "key": "cymepa_members", "rows": [38, 300] }
+ ]
+}

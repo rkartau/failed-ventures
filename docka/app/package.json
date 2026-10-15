@@ -1,0 +1,47 @@
+{
+  "name": "docka",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
+    "indexnow:submit": "node scripts/indexnow-submit.mjs",
+    "seed": "node scripts/seed.mjs",
+    "seed:curated": "node scripts/seed-curated.mjs",
+    "test": "node --import ./tests/_register-alias.mjs --test tests/board-card.test.mjs tests/board-card-i18n.test.mjs tests/claim-state.test.mjs tests/reminders-claim.test.mjs tests/review-panel-claim.test.mjs tests/seafarers-imported-email.test.mjs tests/verify-upload-units.test.mjs tests/recognize-lane.test.mjs tests/verify-upload-i18n.test.mjs tests/verify-upload-admin.test.mjs tests/verify-upload-integration.test.mjs tests/verify-upload-specimens.test.mjs tests/registry-health.test.mjs tests/credential-users.test.mjs tests/password-auth-routes.test.mjs tests/password-auth-invariants.test.mjs tests/pw-i18n.test.mjs tests/account-mgmt.test.mjs tests/admin-rescue.test.mjs tests/outreach-snapshot.test.mjs tests/outreach-overrides.test.mjs tests/outreach-overrides-routes.test.mjs tests/outreach-docs-routes.test.mjs tests/leads-export.test.mjs tests/docka-leads.test.mjs tests/docka-sources.test.mjs tests/atlas-stats.test.mjs tests/atlas-geo.test.mjs tests/admin-nav.test.mjs tests/billing-store.test.mjs tests/billing-usage.test.mjs tests/stripe-webhook.test.mjs tests/billing-enforce.test.mjs tests/billing-cron.test.mjs tests/billing-reconciler.test.mjs tests/billing-routes.test.mjs tests/billing-checkout-errors.test.mjs tests/billing-onboarding.test.mjs tests/billing-ui.test.mjs tests/billing-countries.test.mjs tests/pricing-page.test.mjs tests/booking.test.mjs tests/google-calendar.test.mjs tests/booking-api.test.mjs tests/booking-availability.test.mjs tests/booking-i18n.test.mjs tests/lead-key.test.mjs tests/booking-call-overlay.test.mjs tests/outreach-events.test.mjs tests/outreach-endpoints.test.mjs tests/outreach-concurrency.test.mjs tests/booking-event.test.mjs tests/signup-outreach.test.mjs tests/signup-tokenless.test.mjs tests/outreach-upload-route.test.mjs tests/file-memo.test.mjs tests/product-fit.test.mjs tests/product-fit-route.test.mjs tests/home-i18n.test.mjs tests/home-dom.test.mjs tests/cert-sample-lane.test.mjs tests/email-template.test.mjs tests/seo-phase1.test.mjs tests/seo-phase2a.test.mjs tests/seo-phase2b.test.mjs tests/seo-phase2c.test.mjs tests/seo-tier1-articles.test.mjs tests/seo-b0.test.mjs tests/seo-infra.test.mjs tests/seo-schema-b.test.mjs tests/seo-ux-c.test.mjs tests/seo-content-d.test.mjs tests/seo-new-pages-e.test.mjs tests/seo-guides-e2.test.mjs tests/positioning.test.mjs tests/ga4-consent.test.mjs tests/ga4-dom.test.mjs && node tests/isolation-static.mjs && node --import ./tests/_register-alias.mjs tests/roster-parse.test.mjs && npm run test:sample",
+    "test:sample": "node --import ./tests/_register-sample.mjs --test tests/sample-guard.test.mjs tests/sample-routes.test.mjs tests/sample-seed.test.mjs tests/sample-pages.test.mjs tests/sample-discovery.test.mjs tests/sample-i18n.test.mjs",
+    "test:registry": "node --import ./tests/_register-alias.mjs tests/registry-adapters.test.mjs && node --import ./tests/_register-alias.mjs tests/registry-detect.test.mjs && node --import ./tests/_register-alias.mjs tests/registry-units.test.mjs && node --import ./tests/_register-alias.mjs tests/registry-flows.test.mjs && node --test tests/recognize-worker-pdf.test.mjs"
+  },
+  "dependencies": {
+    "@napi-rs/canvas": "0.1.100",
+    "@types/nodemailer": "^6.4.24",
+    "d3-geo": "^3.1.1",
+    "google-auth-library": "^11.0.2",
+    "jpeg-js": "^0.4.4",
+    "jsqr": "^1.4.0",
+    "next": "^14.2.35",
+    "next-auth": "^5.0.0-beta.31",
+    "nodemailer": "^7.0.13",
+    "pdfjs-dist": "5.6.205",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "stripe": "22.5.0",
+    "tesseract.js": "^7.0.0",
+    "topojson-client": "^3.1.0"
+  },
+  "devDependencies": {
+    "@types/d3-geo": "^3.1.0",
+    "@types/node": "^20.14.10",
+    "@types/react": "^18.3.3",
+    "@types/react-dom": "^18.3.0",
+    "@types/topojson-client": "^3.1.5",
+    "autoprefixer": "^10.4.19",
+    "jsdom": "^29.1.1",
+    "playwright": "^1.61.1",
+    "postcss": "^8.4.39",
+    "tailwindcss": "^3.4.6",
+    "typescript": "^5.5.3"
+  }
+}

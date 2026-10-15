@@ -1,0 +1,60 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: light;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  @apply bg-slate-50 text-slate-800 antialiased;
+}
+
+/* Consent bar (SEO plan v3 R4): the root layout stamps `consent-open` on <html>
+   server-side while the fixed bottom bar is shown, and this rule reserves the bar's
+   height as body padding in CSS. Nothing is measured in JS and nothing shifts when
+   the bar appears (no CLS). The values fit the TALLEST of the six languages at
+   390px (bar = two stacked 44px buttons + padding ~= 109px) and at >= 640px (one
+   row, longest sentence wraps to <= 4 lines ~= 83px). */
+.consent-open body {
+  padding-bottom: 120px;
+}
+@media (min-width: 640px) {
+  .consent-open body {
+    padding-bottom: 88px;
+  }
+}
+
+/* Overview KPI tiles (SEO plan v3 R11): the number is server-rendered at its final
+   value; when the tile scrolls into view it gets `.tile-in`, which runs a one-shot
+   fade/scale so nothing ever counts 55 -> 0 -> 55. Reduced motion: no animation. */
+@keyframes docka-tile-in {
+  from {
+    opacity: 0.35;
+    transform: scale(0.96);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+.tile-in {
+  animation: docka-tile-in 700ms ease-out both;
+}
+@media (prefers-reduced-motion: reduce) {
+  .tile-in {
+    animation: none;
+  }
+}
+
+/* Subtle nautical background wash */
+.hero-bg {
+  background:
+    radial-gradient(1200px 500px at 100% -10%, rgba(51, 133, 251, 0.14), transparent 60%),
+    radial-gradient(900px 400px at -10% 0%, rgba(26, 59, 140, 0.12), transparent 55%);
+}

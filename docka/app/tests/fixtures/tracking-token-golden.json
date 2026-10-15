@@ -1,0 +1,90 @@
+{
+  "_comment": "Golden mint vectors for lib/tracking-token.ts mintTrackingToken (Increment 5). The Python mirror pipeline/tracking_token.py MUST reproduce every `token` byte-for-byte from (secret, payload). Algorithm: payload JSON with FIXED key order send_key,message_id,touch,event (json.dumps(..., separators=(',',':')) equivalent, no spaces) -> base64url WITHOUT padding -> HMAC-SHA256(secret, b64_string) -> base64url WITHOUT padding; token = body + '.' + sig. payload_json_bytes_mod3 documents the b64url padding-omission residue each case covers.",
+  "secret": "golden-vector-secret-0123456789abcdef-NOT-A-REAL-SECRET",
+  "cases": [
+    {
+      "name": "signup_cta_len_a",
+      "payload": {
+        "send_key": "LD1",
+        "message_id": "cta-signup",
+        "touch": 0,
+        "event": "signup"
+      },
+      "payload_json": "{\"send_key\":\"LD1\",\"message_id\":\"cta-signup\",\"touch\":0,\"event\":\"signup\"}",
+      "payload_json_bytes_mod3": 2,
+      "token": "eyJzZW5kX2tleSI6IkxEMSIsIm1lc3NhZ2VfaWQiOiJjdGEtc2lnbnVwIiwidG91Y2giOjAsImV2ZW50Ijoic2lnbnVwIn0.Zqpf2qstR1Y2MOuDTrZ17Ezz8xA0JLnYzp6VAnn8hQU"
+    },
+    {
+      "name": "signup_cta_len_b",
+      "payload": {
+        "send_key": "LD12",
+        "message_id": "cta-signup",
+        "touch": 0,
+        "event": "signup"
+      },
+      "payload_json": "{\"send_key\":\"LD12\",\"message_id\":\"cta-signup\",\"touch\":0,\"event\":\"signup\"}",
+      "payload_json_bytes_mod3": 0,
+      "token": "eyJzZW5kX2tleSI6IkxEMTIiLCJtZXNzYWdlX2lkIjoiY3RhLXNpZ251cCIsInRvdWNoIjowLCJldmVudCI6InNpZ251cCJ9.dADhaSCsbC-jiBBJAnmdM2JcviNpwsoT5NoDJK7yt88"
+    },
+    {
+      "name": "signup_cta_len_c",
+      "payload": {
+        "send_key": "LD123",
+        "message_id": "cta-signup",
+        "touch": 0,
+        "event": "signup"
+      },
+      "payload_json": "{\"send_key\":\"LD123\",\"message_id\":\"cta-signup\",\"touch\":0,\"event\":\"signup\"}",
+      "payload_json_bytes_mod3": 1,
+      "token": "eyJzZW5kX2tleSI6IkxEMTIzIiwibWVzc2FnZV9pZCI6ImN0YS1zaWdudXAiLCJ0b3VjaCI6MCwiZXZlbnQiOiJzaWdudXAifQ.1uRcX3GqOKrp3uUSbsfljs0sVJPfrJlLKhpQO5yEimg"
+    },
+    {
+      "name": "signup_cta_long_key",
+      "payload": {
+        "send_key": "LD123456789012345",
+        "message_id": "cta-signup",
+        "touch": 0,
+        "event": "signup"
+      },
+      "payload_json": "{\"send_key\":\"LD123456789012345\",\"message_id\":\"cta-signup\",\"touch\":0,\"event\":\"signup\"}",
+      "payload_json_bytes_mod3": 1,
+      "token": "eyJzZW5kX2tleSI6IkxEMTIzNDU2Nzg5MDEyMzQ1IiwibWVzc2FnZV9pZCI6ImN0YS1zaWdudXAiLCJ0b3VjaCI6MCwiZXZlbnQiOiJzaWdudXAifQ.BKLdxHFPxG3p3NDu_fD73S8yTu_-9crPvRaCBn-Ob6Q"
+    },
+    {
+      "name": "open_control",
+      "payload": {
+        "send_key": "LD42",
+        "message_id": "m1",
+        "touch": 2,
+        "event": "open"
+      },
+      "payload_json": "{\"send_key\":\"LD42\",\"message_id\":\"m1\",\"touch\":2,\"event\":\"open\"}",
+      "payload_json_bytes_mod3": 2,
+      "token": "eyJzZW5kX2tleSI6IkxENDIiLCJtZXNzYWdlX2lkIjoibTEiLCJ0b3VjaCI6MiwiZXZlbnQiOiJvcGVuIn0.RsVGg0dqOl41keSieV_ZpRPsWD6sUtMD3P6KyJyvlS4"
+    },
+    {
+      "name": "unsub_control",
+      "payload": {
+        "send_key": "LD42",
+        "message_id": "m1",
+        "touch": 3,
+        "event": "unsub"
+      },
+      "payload_json": "{\"send_key\":\"LD42\",\"message_id\":\"m1\",\"touch\":3,\"event\":\"unsub\"}",
+      "payload_json_bytes_mod3": 0,
+      "token": "eyJzZW5kX2tleSI6IkxENDIiLCJtZXNzYWdlX2lkIjoibTEiLCJ0b3VjaCI6MywiZXZlbnQiOiJ1bnN1YiJ9.Ws5JPX9Trppahd5mcrlb3TcTCfO4v6GaJkHB2diaSNQ"
+    },
+    {
+      "name": "unicode_send_key",
+      "payload": {
+        "send_key": "sk🚀",
+        "message_id": "cta-signup",
+        "touch": 0,
+        "event": "signup"
+      },
+      "payload_json": "{\"send_key\":\"sk🚀\",\"message_id\":\"cta-signup\",\"touch\":0,\"event\":\"signup\"}",
+      "payload_json_bytes_mod3": 2,
+      "token": "eyJzZW5kX2tleSI6InNr8J-agCIsIm1lc3NhZ2VfaWQiOiJjdGEtc2lnbnVwIiwidG91Y2giOjAsImV2ZW50Ijoic2lnbnVwIn0.65H0SKz5qg8IunHiRtWxXJ1FU8ddFBHDP3duAzuvrf0"
+    }
+  ]
+}

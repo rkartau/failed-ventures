@@ -1,0 +1,13 @@
+{
+  "__comment": "SYNTHETIC fixture (2026-07-20 dossier §2): no valid DK sample cert existed, so this is CONSTRUCTED from the documented response schema {validationResult, validationMetadata, imagesId}. The boolean envelope is dossier-confirmed (real negative fixture dk-negative-result.json); the validationMetadata field names are a plausible guess the parser treats defensively.",
+  "validationResult": true,
+  "validationMetadata": {
+    "firstName": "METTE",
+    "lastName": "JENSEN",
+    "certificateName": "Certificate of Competency as Master",
+    "category": "STCW",
+    "issueDate": "2023-05-01T00:00:00+00:00",
+    "expiryDate": "2028-05-01T00:00:00+00:00"
+  },
+  "imagesId": "b1f2c3d4-0000-4000-8000-000000000001"
+}

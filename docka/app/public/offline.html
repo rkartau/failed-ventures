@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Docka — offline</title>
+    <style>
+      :root { color-scheme: light; }
+      * { box-sizing: border-box; }
+      body {
+        margin: 0; min-height: 100vh; display: flex; align-items: center; justify-content: center;
+        padding: 24px; background: #f8fafc; color: #0f172a;
+        font-family: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      }
+      .card { max-width: 480px; width: 100%; text-align: center; }
+      .badge {
+        width: 56px; height: 56px; margin: 0 auto; border-radius: 16px;
+        display: flex; align-items: center; justify-content: center;
+        background: #e0e7ff; color: #4338ca;
+      }
+      h1 { margin: 20px 0 0; font-size: 24px; font-weight: 700; }
+      p.body { margin: 12px 0 0; font-size: 16px; line-height: 1.6; color: #475569; }
+      button {
+        margin-top: 28px; min-height: 48px; padding: 0 24px; border-radius: 12px; border: none;
+        background: #2563eb; color: #fff; font-size: 16px; font-weight: 600; cursor: pointer;
+      }
+      p.privacy { margin: 28px auto 0; max-width: 360px; font-size: 12px; line-height: 1.6; color: #94a3b8; }
+    </style>
+  </head>
+  <body>
+    <div class="card">
+      <div class="badge" aria-hidden="true">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M1 1l22 22" /><path d="M16.72 11.06A10.94 10.94 0 0 1 19 12.55" />
+          <path d="M5 12.55a10.94 10.94 0 0 1 5.17-2.39" /><path d="M10.71 5.05A16 16 0 0 1 22.58 9" />
+          <path d="M1.42 9a15.91 15.91 0 0 1 4.7-2.88" /><path d="M8.53 16.11a6 6 0 0 1 6.95 0" />
+          <line x1="12" y1="20" x2="12.01" y2="20" />
+        </svg>
+      </div>
+      <h1 id="title">You appear to be offline</h1>
+      <p class="body" id="body">
+        The connection or our server had a problem. Nothing you saved is lost — your certificates are safe. Please check your connection and try again.
+      </p>
+      <button type="button" id="retry" onclick="location.reload()">Try again</button>
+      <p class="privacy" id="privacy">
+        Your documents stay private — visible only to people you send your personal link to. Never public, never searchable.
+      </p>
+    </div>
+
+    <script>
+      // Self-localise from the docka_lang cookie so a non-English seafarer still
+      // reads a real message during a full outage — no framework, no network.
+      (function () {
+        var DICT = {
+          title: {
+            en: "You appear to be offline", zh: "您似乎处于离线状态", ru: "Похоже, вы офлайн",
+            tl: "Mukhang offline ka", id: "Anda tampaknya sedang offline", vi: "Có vẻ bạn đang ngoại tuyến"
+          },
+          body: {
+            en: "The connection or our server had a problem. Nothing you saved is lost — your certificates are safe. Please check your connection and try again.",
+            zh: "网络或我们的服务器出现了问题。您保存的内容不会丢失——您的证书是安全的。请检查网络后重试。",
+            ru: "Проблема со связью или нашим сервером. Ничего из сохранённого не потеряно — ваши сертификаты в безопасности. Проверьте подключение и попробуйте снова.",
+            tl: "May problema sa koneksyon o sa aming server. Walang nawala sa iyong na-save — ligtas ang iyong mga sertipiko. Pakisuri ang koneksyon at subukang muli.",
+            id: "Ada masalah pada koneksi atau server kami. Yang Anda simpan tidak hilang — sertifikat Anda aman. Silakan periksa koneksi dan coba lagi.",
+            vi: "Kết nối hoặc máy chủ của chúng tôi gặp sự cố. Những gì bạn đã lưu không bị mất — chứng chỉ của bạn vẫn an toàn. Vui lòng kiểm tra kết nối và thử lại."
+          },
+          retry: { en: "Try again", zh: "重试", ru: "Попробовать снова", tl: "Subukang muli", id: "Coba lagi", vi: "Thử lại" },
+          privacy: {
+            en: "Your documents stay private — visible only to people you send your personal link to. Never public, never searchable.",
+            zh: "您的文件始终是私密的——只有您发送个人链接的人才能查看。绝不公开，也无法被搜索。",
+            ru: "Ваши документы остаются конфиденциальными — их видят только те, кому вы отправите личную ссылку. Никогда не публично и не в поиске.",
+            tl: "Nananatiling pribado ang iyong mga dokumento — nakikita lamang ng mga taong padadalhan mo ng iyong personal na link. Hindi kailanman pampubliko o nahahanap.",
+            id: "Dokumen Anda tetap pribadi — hanya orang yang Anda kirimi tautan pribadi yang dapat melihatnya. Tidak pernah publik, tidak dapat dicari.",
+            vi: "Tài liệu của bạn luôn riêng tư — chỉ những người bạn gửi liên kết cá nhân mới xem được. Không bao giờ công khai, không thể tìm kiếm."
+          }
+        };
+        var m = document.cookie.match(/(?:^|;\s*)docka_lang=([^;]+)/);
+        var lang = m ? decodeURIComponent(m[1]) : "en";
+        if (!DICT.title[lang]) lang = "en";
+        document.documentElement.lang = lang;
+        document.getElementById("title").textContent = DICT.title[lang];
+        document.getElementById("body").textContent = DICT.body[lang];
+        document.getElementById("retry").textContent = DICT.retry[lang];
+        document.getElementById("privacy").textContent = DICT.privacy[lang];
+      })();
+    </script>
+  </body>
+</html>

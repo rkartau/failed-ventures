@@ -1,0 +1,11 @@
+{
+  "__comment": "SYNTHETIC fixture (2026-07-20 dossier §2): the 200 valid-cert schema was NOT observed live (no valid sample existed — only the real 404 problem+json miss, no-notfound.json). Constructed as a plausible certificate-details body; the parser answers match-valid ONLY on an explicit positive validity signal and treats unknown shapes as indeterminate.",
+  "certificateNumber": "12345678901",
+  "firstName": "KARI",
+  "lastName": "NORDMANN",
+  "dateOfBirth": "1990-01-01",
+  "certificateName": "Deck Officer Class 1 (Master)",
+  "validFrom": "2023-01-01",
+  "validTo": "2028-01-01",
+  "status": "Valid"
+}
