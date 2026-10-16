@@ -36,7 +36,7 @@ Company: Docka Development OÜ, Estonia.
 | 2026-10-13 | Last outreach email sent. |
 | 2026-10-14 | The campaign halts itself one last time. |
 | 2026-10-15 | Outreach cron switched off. |
-| October 2026 | Service shut down. Deletion notice for Docka Development OÜ published. |
+| October 2026 | Docka product shut down. The company, Docka Development OÜ, continues. |
 
 There were no pilots and no demos with agencies.
 
